@@ -1,9 +1,13 @@
 const alphabet = "qwertyuiop[]asdfghjkl;'zxcvbnm,./";
-let keyboard = 
+
+let keyboard =
 [
-    [alphabet[0], alphabet[1], alphabet[2], alphabet[3], alphabet[4], alphabet[5], alphabet[6], alphabet[7], alphabet[8], alphabet[9], alphabet[10], alphabet[11]],
-    [alphabet[12], alphabet[13], alphabet[14], alphabet[15], alphabet[16], alphabet[17], alphabet[18], alphabet[19], alphabet[20], alphabet[21], alphabet[22]],
-    [alphabet[23], alphabet[24], alphabet[25], alphabet[26], alphabet[27], alphabet[28], alphabet[29], alphabet[30], alphabet[31], alphabet[32]]
+    alphabet.slice(0, 12).split(''),
+    alphabet.slice(12,23).split(''),
+    alphabet.slice(23,33).split('')
+    // [alphabet[0], alphabet[1], alphabet[2], alphabet[3], alphabet[4], alphabet[5], alphabet[6], alphabet[7], alphabet[8], alphabet[9], alphabet[10], alphabet[11]],
+    // [alphabet[12], alphabet[13], alphabet[14], alphabet[15], alphabet[16], alphabet[17], alphabet[18], alphabet[19], alphabet[20], alphabet[21], alphabet[22]],
+    // [alphabet[23], alphabet[24], alphabet[25], alphabet[26], alphabet[27], alphabet[28], alphabet[29], alphabet[30], alphabet[31], alphabet[32]]
 ];
 
 
