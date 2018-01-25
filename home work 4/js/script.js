@@ -20,10 +20,10 @@ function addKeyboardLayout(alphabet) {
 
 function getRandCharInRow(row) {
        
-    let k = addKeyboardLayout(alphabet);
-    let lettersCount = k[row].length;
-    let index = Math.floor(Math.random() * lettersCount);
-    let letter = k[row][index];
+        let k = addKeyboardLayout(alphabet);
+        let lettersCount = k[row].length;
+        let index = Math.floor(Math.random() * lettersCount);
+        let letter = k[row][index];
     return letter;
    };
 
