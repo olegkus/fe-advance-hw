@@ -68,16 +68,15 @@ keyTrainer.checkTask = function() {
 };
 
 
-
-function run() {
-    keyTrainer.setCharCount();
-    keyTrainer.createTask();
-    keyTrainer.startTask();
-    keyTrainer.checkTask();
+keyTrainer.run = function() {
+    this.setCharCount();
+    this.createTask();
+    this.startTask();
+    this.checkTask();
 };
 
 
-run();
+keyTrainer.run();
 
 
 
