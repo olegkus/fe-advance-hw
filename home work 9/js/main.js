@@ -1,25 +1,25 @@
 const lang = {
     en: "qwertyuiop[]asdfghjkl;'zxcvbnm,./ "
 };
-
+const notes = Array.from(document.querySelectorAll(".sonidos")).map(n => n.attributes["data-note"].value);
 
 const keyboardTemplade = document.querySelector("#create-keyboard").textContent.trim();
 const keyTempladeFunc = _.template(keyboardTemplade);
-const resultKeyboard = keyTempladeFunc(lang);
+const resultKeyboard = keyTempladeFunc({en:lang.en, notes:notes});
 
 const container = document.querySelector(".KeysContainer");
 container.innerHTML = resultKeyboard;
 
 const buttons = Array.from(document.querySelectorAll(".keyboard__btn"));
 
+debugger
 
-
-// const playSound = button => {
-//     let note = button.getAttribute('data-note');
-//     const audio = document.querySelector(`audio[data-note=${note}]`);
-//     audio.currentTime = 0;
-//     audio.play();
-// };
+const playSound = button => {
+    let note = button.getAttribute('data-note');
+    const audio = document.querySelector(`audio[data-note=${note}]`);
+    audio.currentTime = 0;
+    audio.play();
+};
 
 
 const findButton = (letter) => {
@@ -58,9 +58,9 @@ const callback = function (param) {
     lightButton(button);
 
     // 3. Play sound
-    // if (document.getElementById('slideThree').checked == true) {
-    //     playSound(button);
-    // }
+    if (document.getElementById('slideThree').checked == true) {
+        playSound(button);
+    }
 };
 
 

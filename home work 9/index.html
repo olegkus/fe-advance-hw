@@ -16,22 +16,22 @@
 
     <script type="keyboard/templade" id="create-keyboard">
         <div class = "row">
-            <%en.split('').slice(0,12).forEach(item => {%>
-                <div class="keyboard__btn key"><%-item%></div>
+            <%en.split('').slice(0,12).forEach((item,i) => {%>
+                <div class="keyboard__btn key" data-note="<%=notes[i%7]%>"><%-item%></div>
                 <% }); %>
         </div>
         <div class = "row">
-            <%en.split('').slice(12,23).forEach(item => {%>
-                <div class="keyboard__btn key"><%-item%></div>
+            <%en.split('').slice(12,23).forEach((item,i) => {%>
+                <div class="keyboard__btn key" data-note="<%=notes[i%7]%>"><%-item%></div>
                 <% }); %>
         </div>
         <div class = "row">
-            <%en.split('').slice(23,33).forEach(item => {%>
-                <div  class="keyboard__btn key"><%-item%></div>
+            <%en.split('').slice(23,33).forEach((item,i) => {%>
+                <div  class="keyboard__btn key" data-note="<%=notes[i%7]%>"><%-item%></div>
                 <% }); %>
         </div>
         <div class = "row">
-                <div  class="keyboard__btn key space"> </div>
+                <div  class="keyboard__btn key space" data-note="do"> </div>
                    
         </div>
     </script>
