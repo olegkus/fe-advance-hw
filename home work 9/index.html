@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="slideThree">
+        <input type="checkbox" value="None" id="slideThree" name="check" checked />
+        <label for="slideThree"></label>
+        <span>Sound</span>
+    </div>
+
+    <script type="keyboard/templade" id="create-keyboard">
+        <div class = "row">
+            <%en.split('').slice(0,12).forEach(item => {%>
+                <div class="keyboard__btn key"><%-item%></div>
+                <% }); %>
+        </div>
+        <div class = "row">
+            <%en.split('').slice(12,23).forEach(item => {%>
+                <div class="keyboard__btn key"><%-item%></div>
+                <% }); %>
+        </div>
+        <div class = "row">
+            <%en.split('').slice(23,33).forEach(item => {%>
+                <div  class="keyboard__btn key"><%-item%></div>
+                <% }); %>
+        </div>
+        <div class = "row">
+                <div  class="keyboard__btn key space"> </div>
+                   
+        </div>
+    </script>
+
+    <div class="KeysContainer"></div>
+    
+
+    <audio class="sonidos" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/742140/C.mp3" data-note="do"></audio>
+    <audio class="sonidos" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/742140/D.mp3" data-note="re"></audio>
+    <audio class="sonidos" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/742140/E.mp3" data-note="mi"></audio>
+    <audio class="sonidos" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/742140/F.mp3" data-note="fa"></audio>
+    <audio class="sonidos" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/742140/G.mp3" data-note="sol"></audio>
+    <audio class="sonidos" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/742140/A.mp3" data-note="la"></audio>
+    <audio class="sonidos" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/742140/B.mp3" data-note="si"></audio>
+
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.4/lodash.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
