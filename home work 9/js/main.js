@@ -12,7 +12,7 @@ container.innerHTML = resultKeyboard;
 
 const buttons = Array.from(document.querySelectorAll(".keyboard__btn"));
 
-debugger
+
 
 const playSound = button => {
     let note = button.getAttribute('data-note');
@@ -23,15 +23,11 @@ const playSound = button => {
 
 
 const findButton = (letter) => {
-       // if (letter == " ") {
-    //     letter = 'space';
-    // }
-
     let button;
     buttons.forEach(function (item, i, arr) {
         if (item.textContent == letter) {
             button = item;
-        }
+         }
     });
     return button;
 };
