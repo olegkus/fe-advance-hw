@@ -3,7 +3,26 @@
 // http://fecore.net.ua/rest/?action=1&name=Mark&score=100 - добавление
 // http://fecore.net.ua/rest/?action=4 - описание доступного функционала
 
-const apiUrl = "http://fecore.net.ua/rest/";
+
+
+// You have few endpoints:
+
+// GET https://test-users-api.herokuapp.com/users/
+// Show your all created users.No parameters.
+
+// GET https://test-users-api.herokuapp.com/users/:id
+// Show your only one user by id.No parameters.
+
+// POST https://test-users-api.herokuapp.com/users/
+// Creating new user.Required parameters: name -> String, age -> Number;
+
+// PUT https://test-users-api.herokuapp.com/users/:id
+// Editing user by ID, sending in URL.Avialible parameters: name -> String, age -> Number
+
+// DELETE https://test-users-api.herokuapp.com/users/:id
+// Deleting user by ID, sending in URL.No parameters.
+
+const apiUrl = "https://test-users-api.herokuapp.com/users/";
 
 const getButton = document.querySelector(".getUser");
 
@@ -21,10 +40,10 @@ function getUsers(evt) {
             throw new Error("Error fetching data");
         })
         .then(data => {
-            let containerGet = `<div><table><tr><th>Name</th><th>Score</th><th>ID</th></tr>`;
-            data.map(row =>{
+            let containerGet = `<div><table><tr><th>Name</th><th>Age</th><th>ID</th></tr>`;
+            data.data.map(row => {
                 containerGet += `<tr>`,
-                containerGet += `<td>${row.name}</td><td>${row.score}</td><td>${row.id}</td>`,
+                containerGet += `<td>${row.name}</td><td>${row.age}</td><td>${row.id}</td>`,
                 containerGet += `</tr>`
             })
             containerGet += `</table></div>`;
@@ -36,16 +55,22 @@ function getUsers(evt) {
 }
 
 const inputAddName = document.querySelector("#addUserName");
-const inputAddScore = document.querySelector("#addUserScore");
+const inputAddAge = document.querySelector("#addUserScore");
 const addUserButton = document.querySelector(".addUser");
 
 addUserButton.addEventListener("click",addUser);
 
 function addUser(evnt) {
     evnt.preventDefault();
-    let apiUrlAddUser = `${apiUrl}?action=1&name=${inputAddName.value}&score=${inputAddScore.value}`;
-    //let data = {"name" : `${inputAddName.value}`, "score" : `${inputAddScore.value}`};
-    fetch(apiUrlAddUser,{method: 'POST'}) //, body: JSON.stringify(data)})
+    let data = {"name" : `${inputAddName.value}`, age : `${inputAddAge.value}`};
+    fetch(apiUrl,{
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers:{
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+                }
+        })
         .then(response => {
             if (response.ok) return response.json();
             throw new Error("Error fetching data");
@@ -53,7 +78,7 @@ function addUser(evnt) {
         .then(response => {
             result.innerHTML = `Person ${inputAddName.value} was added`;
             inputAddName.value = "";
-            inputAddScore.value = "";
+            inputAddAge.value = "";
         })
         .catch(error => {
             console.error("Error :", error);
@@ -68,8 +93,15 @@ removeBtn.addEventListener("click", remUser);
 
 function remUser(evnt) {
     evnt.preventDefault();
-    let apiUrlRemove = `${apiUrl}?action=3&id=${inputRemove.value}`;
-    fetch(apiUrlRemove, {method: "POST"})
+    let apiUrlRemove = `https://test-users-api.herokuapp.com/users/${inputRemove.value}`;
+    fetch(apiUrlRemove, {
+        method: "DELETE",
+        body: JSON.stringify(),
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        }
+    })
         .then(response => {
             if (response.ok) return response.json();
             throw new Error("Error fetching data");
@@ -94,8 +126,14 @@ updateUserBtn.addEventListener("click", updateUser);
 
 function updateUser (params) {
     params.preventDefault();
-    let apiUrlUpdate = `${apiUrl}?action=2&id=${inputUpdateUser.value}&name=${inputUpdateUserName.value}1&score=${inputUpdateUserScore.value}`;
-    fetch(apiUrlUpdate,{method: "POST"})
+    let apiUrlUpdate = `https://test-users-api.herokuapp.com/users/${inputUpdateUser.value}`;
+    fetch(apiUrlUpdate,{
+        method: "PUT", body: JSON.stringify({ "name": `${inputUpdateUserName.value}`, age: `${inputUpdateUserScore.value}`}),
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        }
+    })
         .then(response => {
             if (response.ok) return response.json();
             throw new Error("Error fetching data");
