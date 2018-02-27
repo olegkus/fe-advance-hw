@@ -1,0 +1,28 @@
+.box {
+    margin-left: auto;
+    margin-right: auto;
+    border: solid 1px grey;
+    background-color: dimgray;
+    width: 50%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   
+    
+}
+
+.box-form {
+    margin-top: 25px;
+    margin-left: 25px;
+    margin-bottom: 25px;
+    
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+    border: solid 1px rgb(78, 77, 77);
+    
+}
+
+td {
+     border: solid 1px rgb(78, 77, 77);
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box">
+        <form class="box-form">
+            <p>Для получения данных пользователей нажмите кнопку
+                <button class="getUser">Получить данные</button>
+            </p>
+        </form>
+        <form class="box-form">
+            <p>Форма для добавления пользователя :</p>
+            <input type="text" placeholder="Имя пользователя" id ="addUserName">
+            <input type="text" placeholder="Количество очков" id="addUserScore">
+            <button class="addUser">Добавить пользователя</button>
+        </form>
+        <form class="box-form">
+            <p>Форма для удаления пользователя :</p>
+            <input type="text" placeholder="ID пользователя" id="removeUser">
+            <button class="rem-user">Удалить пользователя</button>
+        </form>
+        <form class="box-form">
+            <p>Форма для изменеия пользователя :</p>
+            <input type="text" placeholder="Имя пользователя" id="updateUserName">
+            <input type="text" placeholder="ID пользователя" id="updateUserId">
+            <input type="text" placeholder="Количество очков" id = "updateScore">
+            <button class="up-User">Изменить пользователя</button>
+        </form>
+        <div class="result"></div>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html>
