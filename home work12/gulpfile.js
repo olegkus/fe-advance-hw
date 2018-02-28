@@ -9,6 +9,22 @@ const del = require('del');
 const htmlmin = require('gulp-htmlmin');
 const imagemin = require('gulp-imagemin');
 const rigger = require('gulp-rigger');
+const babel = require('gulp-babel');
+const concat = require('gulp-concat');
+const uglify = require('gulp-uglify');
+
+gulp.task('js',()=>{
+  return gulp.src('./src/js/*.js')
+    .pipe(babel({
+      presets: ['env']
+    }))
+    .pipe(concat('all.js'))
+    .pipe(uglify())
+    .pipe(gulp.dest('./dist/js'))
+    .pipe(browserSync.reload({
+      stream: true
+    }))
+})
 
 // Создаем таск для сборки html файлов
 gulp.task('html', () => {
@@ -93,6 +109,8 @@ gulp.task('watch', () => {
   gulp.watch('./src/images/**/*.*', ['img']);
   // Следим за изменениями в шрифтах и вызываем таск 'fonts' на каждом изменении
   gulp.watch('./src/fonts/**/*.*', ['fonts']);
+  //Следим за js 
+  gulp.watch('./src/js/*.js', ['js']);
 });
 
 // Таск создания и запуска веб-сервера
