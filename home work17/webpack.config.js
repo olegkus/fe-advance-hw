@@ -20,10 +20,6 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /(\.tpl|\.html)$/,
-        loader: 'lodash-template-webpack-loader',
-      },
-      {
         test: /\.js$/,
         include: SRC_DIR,
         use: ['babel-loader']
